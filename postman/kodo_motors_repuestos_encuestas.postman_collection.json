@@ -1,0 +1,188 @@
+{
+  "info": {
+    "_postman_id": "c89f1a23-4e56-7890-abcd-ef1234567890",
+    "name": "Kodo Motors - Repuestos y Encuestas (EE2)",
+    "description": "Colección completa de pruebas para los módulos 11 (Repuestos) y 12 (Encuestas) de Kodo Motors.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://localhost:4000",
+      "type": "string"
+    }
+  ],
+  "item": [
+    {
+      "name": "01. Módulo Repuestos",
+      "item": [
+        {
+          "name": "GET - Listar Todos los Repuestos",
+          "request": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/repuestos"
+          }
+        },
+        {
+          "name": "GET - Filtrar por Modelo Compatible (CX-5)",
+          "request": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/repuestos?modelo_compatible=CX-5"
+          }
+        },
+        {
+          "name": "GET - Filtrar Repuestos con Bajo Stock (Alerta)",
+          "request": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/repuestos?bajo_stock=true"
+          }
+        },
+        {
+          "name": "GET - Obtener Repuesto por ID (Existente)",
+          "request": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/repuestos/1"
+          }
+        },
+        {
+          "name": "GET - ID Inexistente (404 Not Found)",
+          "request": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/repuestos/999"
+          }
+        },
+        {
+          "name": "GET - ID Inválido Alfanumérico (400 Bad Request)",
+          "request": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/repuestos/abc"
+          }
+        },
+        {
+          "name": "POST - Crear Nuevo Repuesto (201 Created)",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"codigo\": \"KD01-50-031\",\n  \"nombre\": \"Faro delantero LED derecho\",\n  \"modelo_compatible\": \"CX-5\",\n  \"stock\": 5,\n  \"stock_minimo\": 2,\n  \"precio\": 890.00,\n  \"ubicacion\": \"C-12\"\n}"
+            },
+            "url": "{{baseUrl}}/api/repuestos"
+          }
+        },
+        {
+          "name": "POST - Error Código Duplicado (400 Bad Request)",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"codigo\": \"PE01-14-302\",\n  \"nombre\": \"Filtro de aceite clon\",\n  \"modelo_compatible\": \"Todos\",\n  \"precio\": 50.00\n}"
+            },
+            "url": "{{baseUrl}}/api/repuestos"
+          }
+        },
+        {
+          "name": "PUT - Actualizar Stock y Precio (200 OK)",
+          "request": {
+            "method": "PUT",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"stock\": 15,\n  \"precio\": 49.90,\n  \"ubicacion\": \"A-05\"\n}"
+            },
+            "url": "{{baseUrl}}/api/repuestos/1"
+          }
+        },
+        {
+          "name": "DELETE - Rechazo de Eliminación por Stock > 0 (400 Bad Request)",
+          "request": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/api/repuestos/2"
+          }
+        }
+      ]
+    },
+    {
+      "name": "02. Módulo Encuestas",
+      "item": [
+        {
+          "name": "GET - Listar Todas las Encuestas",
+          "request": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/encuestas"
+          }
+        },
+        {
+          "name": "GET - Filtrar por Puntuación (5 estrellas)",
+          "request": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/encuestas?puntuacion=5"
+          }
+        },
+        {
+          "name": "GET - Obtener Encuesta por ID",
+          "request": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/encuestas/1"
+          }
+        },
+        {
+          "name": "POST - Registrar Encuesta para Orden Entregada #2 (201 Created)",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"orden_id\": 2,\n  \"puntuacion\": 5,\n  \"recomendaria\": true,\n  \"comentario\": \"Excelente servicio en el cambio de pastillas de freno, muy profesionales.\"\n}"
+            },
+            "url": "{{baseUrl}}/api/encuestas"
+          }
+        },
+        {
+          "name": "POST - Error Orden No Entregada #4 (400 Bad Request)",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"orden_id\": 4,\n  \"puntuacion\": 4,\n  \"recomendaria\": true,\n  \"comentario\": \"Intentando encuestar orden en proceso\"\n}"
+            },
+            "url": "{{baseUrl}}/api/encuestas"
+          }
+        },
+        {
+          "name": "POST - Error Orden Ya Encuestada #1 (400 Bad Request)",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"orden_id\": 1,\n  \"puntuacion\": 3,\n  \"recomendaria\": false,\n  \"comentario\": \"Intento duplicado\"\n}"
+            },
+            "url": "{{baseUrl}}/api/encuestas"
+          }
+        },
+        {
+          "name": "PUT - Actualizar Encuesta (200 OK)",
+          "request": {
+            "method": "PUT",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"puntuacion\": 4,\n  \"recomendaria\": true,\n  \"comentario\": \"Comentario actualizado: Buen servicio en general.\"\n}"
+            },
+            "url": "{{baseUrl}}/api/encuestas/1"
+          }
+        },
+        {
+          "name": "DELETE - Eliminar Encuesta (200 OK)",
+          "request": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/api/encuestas/1"
+          }
+        }
+      ]
+    }
+  ]
+}
