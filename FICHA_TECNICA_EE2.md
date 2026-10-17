@@ -10,13 +10,12 @@
 
 ---
 
-### 2. INTEGRANTES DEL EQUIPO (6 Integrantes)
-- **Integrante 1:** [Nombre y Apellidos] — Rol: Arquitectura Base y Express
-- **Integrante 2:** [Nombre y Apellidos] — Rol: Conexión MySQL y Scripts de BD
-- **Integrante 3:** [Nombre y Apellidos] — Rol: Repuestos (Modelo y Repositorio)
-- **Integrante 4:** [Nombre y Apellidos] — Rol: Repuestos (Servicio y Controlador)
-- **Integrante 5:** [Nombre y Apellidos] — Rol: Encuestas (Modelo y Repositorio con JOIN)
-- **Integrante 6:** [Nombre y Apellidos] — Rol: Encuestas (Servicio, QA y Pruebas Postman)
+### 2. INTEGRANTES DEL EQUIPO (5 Integrantes)
+- **Integrante 1 (Tú):** [Nombre y Apellidos] — Rol: Arquitectura Base, Servidor Express y Connection Pool MySQL
+- **Integrante 2:** [Nombre y Apellidos] — Rol: Módulo Repuestos (Modelo y Repositorio SQL)
+- **Integrante 3:** [Nombre y Apellidos] — Rol: Módulo Repuestos (Reglas de Negocio, Controlador y Rutas)
+- **Integrante 4:** [Nombre y Apellidos] — Rol: Módulo Encuestas (Modelo y Repositorio con JOIN)
+- **Integrante 5:** [Nombre y Apellidos] — Rol: Módulo Encuestas (Reglas de Negocio, Rutas, Pruebas Postman y Documentación)
 
 ---
 

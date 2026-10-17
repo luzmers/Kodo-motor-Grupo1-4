@@ -12,15 +12,14 @@
 
 ---
 
-## 2. Integrantes del Equipo (6 Integrantes)
-| # | Integrante | Rol / Módulo Asignado | Ramas Asignadas |
+## 2. Integrantes del Equipo (5 Integrantes)
+| # | Integrante | Rol / Módulo Asignado | Rama en GitHub |
 |---|---|---|---|
-| 1 | **[Integrante 1 - Líder Git]** | Arquitectura general, Express y configuración `.env` | `main`, `feature/arquitectura-base` |
-| 2 | **[Integrante 2 - Database]** | Conexión MySQL, Connection Pool y scripts DDL/Seed | `feature/database-pool` |
-| 3 | **[Integrante 3 - Repuestos Logic]** | Modelo y Reglas de Negocio de Repuestos | `feature/repuestos-service` |
-| 4 | **[Integrante 4 - Repuestos HTTP]** | Controlador, Rutas y Endpoints de Repuestos | `feature/repuestos-controller` |
-| 5 | **[Integrante 5 - Encuestas Logic]** | Modelo y Reglas de Negocio de Encuestas | `feature/encuestas-service` |
-| 6 | **[Integrante 6 - Encuestas HTTP]** | Controlador, Rutas y Colección de Postman | `feature/encuestas-controller` |
+| 1 | **[Tú - Líder Backend]** | Arquitectura Base, Servidor Express y Connection Pool MySQL | `feature/arquitectura-y-db` |
+| 2 | **[Integrante 2]** | Módulo Repuestos: Modelo de Dominio y Repositorio SQL | `feature/repuestos-persistencia` |
+| 3 | **[Integrante 3]** | Módulo Repuestos: Reglas de Negocio, Controlador y Rutas | `feature/repuestos-api` |
+| 4 | **[Integrante 4]** | Módulo Encuestas: Modelo de Dominio y Repositorio con JOIN | `feature/encuestas-persistencia` |
+| 5 | **[Integrante 5]** | Módulo Encuestas: Reglas de Negocio, Rutas, Pruebas Postman y Documentación | `feature/encuestas-qa-docs` |
 
 ---
 
